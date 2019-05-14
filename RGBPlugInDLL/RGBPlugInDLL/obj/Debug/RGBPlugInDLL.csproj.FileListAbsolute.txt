@@ -1,7 +1,0 @@
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\obj\Debug\RGBPlugInDLL.csprojAssemblyReference.cache
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\obj\Debug\RGBPlugInDLL.csproj.CoreCompileInputs.cache
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\bin\Debug\RGBPlugInDLL.dll.config
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\bin\Debug\RGBPlugInDLL.dll
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\bin\Debug\RGBPlugInDLL.pdb
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\obj\Debug\RGBPlugInDLL.dll
-C:\Users\The Goat\source\repos\RGBPlugInDLL\RGBPlugInDLL\obj\Debug\RGBPlugInDLL.pdb
