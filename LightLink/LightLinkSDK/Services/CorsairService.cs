@@ -16,6 +16,7 @@ using CUE.NET.Groups;
 using LightLinkSDK.Models;
 using LightLinkSDK.Models.Generic;
 using LightLinkSDK.Services.Generic;
+using IDeviceInfo = LightLinkSDK.Models.Generic.IDeviceInfo;
 
 namespace LightLinkSDK.Services
 {
@@ -52,7 +53,6 @@ namespace LightLinkSDK.Services
         private void RunICUE(String path)
         {
             String pathVar = Environment.GetEnvironmentVariable(path);
-            Console.WriteLine(pathVar + "iCUE.exe");
             if (pathVar is null) throw new Exception("Environment Variable doesn't exist");
 
             if (File.Exists(pathVar + "iCUE.exe"))
@@ -74,7 +74,6 @@ namespace LightLinkSDK.Services
                 Thread.Sleep(1800);
             }
         }
-
         public void Start()
         {
             if (IsStarted) throw new InvalidOperationException("One Instance already exists");
@@ -113,6 +112,15 @@ namespace LightLinkSDK.Services
             CueSDK.UpdateMode = UpdateMode.Continuous;
         }
 
+        public void ChangeAllColors()
+        {
+            foreach (var device in CueSDK.InitializedDevices)
+            {
+                device.Brush = new RandomColorBrush();
+            }
+            CueSDK.UpdateMode = UpdateMode.Continuous;
+        }
+
         public void ChangeMouseColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
@@ -143,17 +151,15 @@ namespace LightLinkSDK.Services
             CueSDK.MousematSDK.Brush = new SolidColorBrush(color);
         }
 
-        public IEnumerable<IDevice> GetInitializedDevices()
-        {
-            //return CueSDK.InitializedDevices;
-            throw new NotImplementedException();
-        }
-
         public String GetServiceName()
         {
             return "Corsair";
         }
 
+        public IEnumerable<IDeviceInfo> GetInitializedDevices()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

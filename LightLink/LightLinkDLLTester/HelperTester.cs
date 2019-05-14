@@ -36,7 +36,6 @@ namespace LightLinkDLLTester
             Assert.AreEqual(expected.Length, actual.Length);
             for (int i = 0; i < expected.Length; i++)
                 Assert.AreEqual(expected[i], actual[i]);
-
         }
     }
 }

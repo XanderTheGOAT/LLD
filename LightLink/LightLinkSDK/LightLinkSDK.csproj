@@ -52,13 +52,18 @@
     <Compile Include="Models\Generic\Enums\DeviceCaps.cs" />
     <Compile Include="Models\Generic\Enums\DeviceType.cs" />
     <Compile Include="Models\Generic\GenericDeviceInfo.cs" />
-    <Compile Include="Models\IDevice.cs" />
+    <Compile Include="Models\Generic\IDevice.cs" />
+    <Compile Include="Models\Generic\IDeviceInfo.cs" />
+    <Compile Include="Profiles\CompanyProfile.cs" />
+    <Compile Include="Profiles\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CorsairService.cs" />
     <Compile Include="Services\Generic\IColorService.cs" />
     <Compile Include="Services\Generic\IDeviceService.cs" />
     <Compile Include="Services\Generic\IGenericColorService.cs" />
     <Compile Include="Services\Generic\IStartable.cs" />
+    <Compile Include="Services\LogitechGSDK.cs" />
+    <Compile Include="Services\LogitechService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
