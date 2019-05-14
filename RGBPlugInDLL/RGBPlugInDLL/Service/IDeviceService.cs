@@ -1,7 +1,6 @@
-﻿using RGBPlugInDLL.Models.Devices;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace RGBPlugInDLL.Services
+namespace LightLink.Services
 {
     public interface IDeviceService
     {

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RGBPlugInDLL", "RGBPlugInDLL\RGBPlugInDLL.csproj", "{A6E480AB-61B0-449D-A582-C27DFDCDEEE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLinkDLLa", "RGBPlugInDLL\LightLinkDLLa.csproj", "{A6E480AB-61B0-449D-A582-C27DFDCDEEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLinkDLL", "LightLinkDLL\LightLinkDLL.csproj", "{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A6E480AB-61B0-449D-A582-C27DFDCDEEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E480AB-61B0-449D-A582-C27DFDCDEEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E480AB-61B0-449D-A582-C27DFDCDEEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

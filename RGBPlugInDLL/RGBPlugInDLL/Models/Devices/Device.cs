@@ -1,6 +1,6 @@
 ﻿using RGBPlugInDLL.Models.Colors;
 
-namespace LightLinkSDK.Models.Generic
+namespace LightLink.Models.Generic
 {
     /// <summary>
     /// Represents a generic Device. (Keyboard, Mouse, etc...)

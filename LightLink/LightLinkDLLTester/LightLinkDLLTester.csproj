@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LightLinkSDK\LightLinkSDK.csproj">
+    <ProjectReference Include="..\LightLinkSDK\CorsairSDK.csproj">
       <Project>{93a4cc30-7a39-4e51-937c-97cf573e8cd4}</Project>
-      <Name>LightLinkSDK</Name>
+      <Name>CorsairSDK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

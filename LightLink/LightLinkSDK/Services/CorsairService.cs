@@ -2,20 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using CUE.NET;
 using CUE.NET.Brushes;
-using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Effects;
-using CUE.NET.Groups;
-using LightLinkSDK.Models;
-using LightLinkSDK.Models.Generic;
-using LightLinkSDK.Services.Generic;
 using IDeviceInfo = LightLinkSDK.Models.Generic.IDeviceInfo;
 
 namespace LightLinkSDK.Services

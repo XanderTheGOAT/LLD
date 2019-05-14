@@ -1,4 +1,4 @@
-﻿namespace LightLinkSDK.Profiles
+﻿namespace LightLink.Profiles
 {
     public class User
     {

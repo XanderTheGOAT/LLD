@@ -1,12 +1,7 @@
-﻿using LightLinkSDK.Models;
-using LightLinkSDK.Models.Generic;
-using System;
+﻿using LightLink.Models.Generic;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LightLinkSDK.Profiles
+namespace LightLink.Profiles
 {
     public class CompanyProfile
     {

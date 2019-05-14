@@ -1,7 +1,7 @@
 ﻿using RGBPlugInDLL.Models.Devices;
 using RGBPlugInDLL.Models.Enums;
 
-namespace LightLinkSDK.Models.Generic
+namespace LightLink.Models.Generic
 {
     public class GenericDeviceInfo : IDeviceInfo
     {

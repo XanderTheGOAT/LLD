@@ -1,7 +1,7 @@
 ﻿using RGBPlugInDLL.Extensions;
 using System.Diagnostics;
 
-namespace RGBPlugInDLL.Models.Colors
+namespace LightLink.Models.Colors
 {
     [DebuggerDisplay("[A: {A}, R: {R}, G: {G}, B: {B}, ARGB: {ARGB}]")]
     public class CompanyColor
