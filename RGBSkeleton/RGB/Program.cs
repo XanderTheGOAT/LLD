@@ -1,26 +1,28 @@
-﻿using LightLinkSDK.Services.Generic;
+﻿using CorsairSDK;
+using LightLink.Models.Colors;
+using LightLink.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LogitechSDK;
+using System.Threading;
+using System.Drawing;
 
 namespace RGB
 {
-    class Program
+    internal class Program
     {
         public static void Main(string[] args)
         {
-
+            FindAllServices();
         }
 
         public static void FindAllServices()
         {
-            IGenericColorService service;
-            foreach (var item in collection)
-            {
+            IGenericColorService service = new LogitechService();
+            service.Start();
 
-            }
+            service.ChangeAllColors(new CompanyColor(Color.Orange.R, Color.Orange.G, Color.Orange.B));
+            Thread.Sleep(1000);
+            service.Stop();
         }
 
     }

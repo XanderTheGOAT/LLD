@@ -1,0 +1,9 @@
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.csprojAssemblyReference.cache
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.csproj.CoreCompileInputs.cache
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.AssemblyInfoInputs.cache
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.AssemblyInfo.cs
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.deps.json
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.dll
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.pdb
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.dll
+C:\Users\The Goat\source\GitRepos\LLD\LightLinkDLL\LightLinkDLL\obj\Debug\netstandard2.0\LightLinkDLL.pdb

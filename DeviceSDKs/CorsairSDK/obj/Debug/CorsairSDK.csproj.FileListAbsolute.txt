@@ -1,0 +1,11 @@
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\LightLinkDLL.dll
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\CUE.NET.pdb
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\CUE.NET.xml
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\LightLinkDLL.pdb
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\obj\Debug\CorsairSDK.csprojAssemblyReference.cache
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\obj\Debug\CorsairSDK.csproj.CoreCompileInputs.cache
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\obj\Debug\CorsairSDK.csproj.CopyComplete
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\CorsairSDK.dll
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\bin\Debug\CorsairSDK.pdb
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\obj\Debug\CorsairSDK.dll
+C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\CorsairSDK\obj\Debug\CorsairSDK.pdb

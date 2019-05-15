@@ -7,8 +7,8 @@
     <ProjectGuid>{93A4CC30-7A39-4E51-937C-97CF573E8CD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LightLinkSDK</RootNamespace>
-    <AssemblyName>LightLinkSDK</AssemblyName>
+    <RootNamespace>CorsairSDK</RootNamespace>
+    <AssemblyName>CorsairSDK</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -36,6 +36,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\GitRepos\program\bin\Debug\netcoreapp2.1\CUE.NET.dll</HintPath>
     </Reference>
+    <Reference Include="LightLinkDLL">
+      <HintPath>..\..\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,8 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CorsairColorConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CorsairService.cs" />
+    <Compile Include="CorsairService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿using RGBPlugInDLL.Models.Colors;
+﻿using LightLink.Models.Colors;
 
 namespace LightLink.Converters
 {
@@ -12,11 +12,13 @@ namespace LightLink.Converters
         /// Converts a <see cref="Color" /> to a <see cref="CompanyColor" />.
         /// </summary>
         /// <param name="color">The <see cref="Color"/> to convert.</param>
-        CompanyColor ConvertColor(Color color);
+        CompanyColor ConvertToCompanyColor(Color color);
+        
         /// <summary>
         /// Converts a <see cref="CompanyColor" /> to a <see cref="T" />.
         /// </summary>
         /// <param name="color">The <see cref="CompanyColor"/> to convert.</param>
-        Color ConvertToColor(Color color);
+        Color ConvertToGenericColor(CompanyColor color);
+
     }
 }
