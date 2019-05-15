@@ -19,9 +19,10 @@ namespace CorsairSDK
     {
         #region Properties / Data Fields
         private static CorsairService service;
-        private CorsairService()
+        public CorsairService()
         {
         }
+
         public static CorsairService Instance
         {
             get

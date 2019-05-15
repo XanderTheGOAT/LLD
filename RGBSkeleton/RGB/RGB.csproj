@@ -33,14 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CorsairSDK">
-      <HintPath>..\..\DeviceSDKs\CorsairSDK\bin\Debug\CorsairSDK.dll</HintPath>
-    </Reference>
     <Reference Include="LightLinkDLL">
       <HintPath>..\..\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="LogitechSDK">
-      <HintPath>..\..\DeviceSDKs\LogitechSDK\bin\Debug\LogitechSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

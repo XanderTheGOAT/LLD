@@ -16,6 +16,11 @@ namespace LogitechSDK
         public Process process;
         public bool IsStarted { get; private set; }
 
+        public LogitechService()
+        {
+
+        }
+
         public void ChangeAllColors(CompanyColor color)
         {
             int r = (int)(((float)color.R / 255) * 100);
@@ -96,7 +101,7 @@ namespace LogitechSDK
 
         public string GetServiceName()
         {
-            throw new NotImplementedException();
+            return "Logitech";
         }
 
         public void Refresh()
