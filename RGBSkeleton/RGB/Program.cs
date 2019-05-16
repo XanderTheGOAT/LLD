@@ -15,6 +15,7 @@ namespace RGB
         public static void Main(string[] args)
         {
             PrintAllThings();
+
         }
 
         public static IEnumerable<IGenericColorService> FindAllServices()
@@ -45,9 +46,23 @@ namespace RGB
         private static void PrintAllThings()
         {
             var services = FindAllServices();
+            Random randySavage = new Random();
             foreach (var service in services)
             {
-                Console.WriteLine(service.GetServiceName());
+                if (service.GetServiceName().Equals("Logitech"))
+                {
+                    service.Start();
+                    Console.WriteLine(service.GetServiceName());
+                    while (Console.ReadLine() != "n")
+                    {
+                        byte r = (byte)randySavage.Next(255);
+                        byte g = (byte)randySavage.Next(255);
+                        byte b = (byte)randySavage.Next(255);
+                        service.ChangeAllColors(new CompanyColor(r,g,b));
+                        Console.WriteLine("Changed");
+                    }
+                    service.Stop();
+                }
             }
         }
 
