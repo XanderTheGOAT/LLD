@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="LightLinkModels">
+      <HintPath>..\..\..\LLS\LightLinkModels\LightLinkModels\bin\Debug\netstandard2.0\LightLinkModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

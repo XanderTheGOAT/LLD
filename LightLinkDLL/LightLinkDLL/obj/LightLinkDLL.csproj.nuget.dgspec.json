@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\The Goat\\source\\GitRepos\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj": {}
+    "C:\\Users\\The Goat\\source\\GitRepos\\LightLink\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\The Goat\\source\\GitRepos\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj": {
+    "C:\\Users\\The Goat\\source\\GitRepos\\LightLink\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\The Goat\\source\\GitRepos\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj",
+        "projectUniqueName": "C:\\Users\\The Goat\\source\\GitRepos\\LightLink\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj",
         "projectName": "LightLinkDLL",
-        "projectPath": "C:\\Users\\The Goat\\source\\GitRepos\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj",
+        "projectPath": "C:\\Users\\The Goat\\source\\GitRepos\\LightLink\\LLD\\LightLinkDLL\\LightLinkDLL\\LightLinkDLL.csproj",
         "packagesPath": "C:\\Users\\The Goat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\The Goat\\source\\GitRepos\\LLD\\LightLinkDLL\\LightLinkDLL\\obj\\",
+        "outputPath": "C:\\Users\\The Goat\\source\\GitRepos\\LightLink\\LLD\\LightLinkDLL\\LightLinkDLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\ProgramData\\Xamarin\\NuGet\\",

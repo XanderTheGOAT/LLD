@@ -8,3 +8,15 @@ C:\Users\The Goat\source\GitRepos\LLD\RGBSkeleton\RGB\obj\Debug\RGB.csproj.CoreC
 C:\Users\The Goat\source\GitRepos\LLD\RGBSkeleton\RGB\obj\Debug\RGB.csproj.CopyComplete
 C:\Users\The Goat\source\GitRepos\LLD\RGBSkeleton\RGB\obj\Debug\RGB.exe
 C:\Users\The Goat\source\GitRepos\LLD\RGBSkeleton\RGB\obj\Debug\RGB.pdb
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\RGB.exe.config
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\RGB.exe
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\RGB.pdb
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\LightLinkDLL.dll
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\LightLinkDLL.pdb
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\obj\Debug\RGB.csprojAssemblyReference.cache
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\obj\Debug\RGB.csproj.CoreCompileInputs.cache
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\obj\Debug\RGB.csproj.CopyComplete
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\obj\Debug\RGB.exe
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\obj\Debug\RGB.pdb
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\LightLinkModels.dll
+C:\Users\The Goat\source\GitRepos\LightLink\LLD\RGBSkeleton\RGB\bin\Debug\LightLinkModels.pdb
