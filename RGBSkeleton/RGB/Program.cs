@@ -1,12 +1,9 @@
-﻿using LightLink.Models.Colors;
-using LightLink.Services;
+﻿using LightLink.Services;
 using System;
-using System.Threading;
-using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Linq;
+using System.Reflection;
 
 namespace RGB
 {
@@ -20,25 +17,25 @@ namespace RGB
 
         public static IEnumerable<IGenericColorService> FindAllServices()
         {
-            List<IGenericColorService> services = new List<IGenericColorService>();
-            var currentDir = Directory.GetCurrentDirectory() + "\\";
-            var directoryInfo = new DirectoryInfo(currentDir);
+            var services = new List<IGenericColorService>();
+            var directoryInfo = new DirectoryInfo(".");
             var files = directoryInfo.GetFiles("*.dll");
             foreach (var file in files)
             {
                 Assembly assembly = null;
                 try
                 {
-                    assembly = Assembly.LoadFrom(currentDir + file.Name);
-                }
-                catch (BadImageFormatException) { }
-                if (assembly != null)
-                    foreach (var type in assembly.ExportedTypes.Where(t => t.GetInterfaces().Contains(typeof(IGenericColorService)) && !t.IsInterface))
+                    assembly = Assembly.LoadFrom(file.FullName);
+                    foreach (var type in assembly.GetTypes().Where(t => typeof(IGenericColorService).IsAssignableFrom(t) &&!t.IsInterface))
                     {
-                        var c = type.GetConstructors(BindingFlags.NonPublic);
-                        var service = type.GetConstructors()[0].Invoke(null);
+                        var service = type.GetConstructor(Array.Empty<Type>()).Invoke(Array.Empty<object>());
                         services.Add(service as IGenericColorService);
                     }
+                }
+                catch (BadImageFormatException e)
+                {
+                    Console.WriteLine(e);
+                }
             }
             return services;
         }
@@ -46,8 +43,8 @@ namespace RGB
         private static void PrintAllThings()
         {
             var services = FindAllServices();
-            Random randySavage = new Random();
-            foreach (var service in services)
+            var randySavage = new Random();
+            foreach (var service in services.Where(s => s.GetServiceName() == "Logitech"))
             {
                 Console.WriteLine(service.GetServiceName());
                 //if (service.GetServiceName().Equals("Logitech"))
