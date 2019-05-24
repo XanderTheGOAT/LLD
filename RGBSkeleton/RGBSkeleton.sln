@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RGB", "RGB\RGB.csproj", "{76706B4F-1ABE-47E1-B388-56AD2FCF97BD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkDLL", "..\LightLinkDLL\LightLinkDLL\LightLinkDLL.csproj", "{D27C7862-C105-449C-ACC8-F15E11ED8DED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkModels", "..\..\LLS\LightLinkModels\LightLinkModels\LightLinkModels.csproj", "{65F0998C-6C91-4419-B493-C4F271DA32F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{76706B4F-1ABE-47E1-B388-56AD2FCF97BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76706B4F-1ABE-47E1-B388-56AD2FCF97BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76706B4F-1ABE-47E1-B388-56AD2FCF97BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D27C7862-C105-449C-ACC8-F15E11ED8DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27C7862-C105-449C-ACC8-F15E11ED8DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27C7862-C105-449C-ACC8-F15E11ED8DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27C7862-C105-449C-ACC8-F15E11ED8DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F0998C-6C91-4419-B493-C4F271DA32F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F0998C-6C91-4419-B493-C4F271DA32F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F0998C-6C91-4419-B493-C4F271DA32F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F0998C-6C91-4419-B493-C4F271DA32F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

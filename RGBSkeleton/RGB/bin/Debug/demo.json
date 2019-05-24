@@ -1,0 +1,9 @@
+{
+  "profile": {
+    "name": "Demo App Profile",
+    "configurations": {
+      "keyboard": "ffc001af"
+    }
+  },
+  "computer": "{\"Id\":\"000000000000000000000000\",\"Name\":\"\",\"UserName\":\"\",\"ConnectedDevices\":[]}"
+}

@@ -1,4 +1,7 @@
 ﻿using LightLink.Services;
+using LightLinkDLL.DataAccess;
+using LightLinkDLL.DataAccess.Data_Source;
+using LightLinkModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,13 +14,40 @@ namespace RGB
     {
         public static void Main(string[] args)
         {
-            PrintAllThings();
-
+            //PrintAllThings();
+            InitializeApp();
+            do
+            {
+                Console.WriteLine("Press N To Exit...");
+            }
+            while (Console.ReadKey().Key != ConsoleKey.N);
+            
         }
 
-        public static IEnumerable<IGenericColorService> FindAllServices()
+        private static void InitializeApp()
         {
-            var services = new List<IGenericColorService>();
+            var dataSource = new FileDataSource("demo.json");
+            var dataAccess = new PollingDataAccess(5000, dataSource);
+            var computer = new Computer();
+            foreach (var service in FindAllServices())
+            {
+                //TODO: Start services...
+                service.Start();
+                dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
+                computer.Name = Environment.MachineName;
+                AddDevicesToComputer(service, computer);
+            }
+            dataAccess.UpdateData(computer);
+        }
+
+        private static void AddDevicesToComputer(IRGBLightService service, Computer computer)
+        {
+            //TODO: Add Devices To computer.
+        }
+
+        public static IEnumerable<IRGBLightService> FindAllServices()
+        {
+            var services = new List<IRGBLightService>();
             var directoryInfo = new DirectoryInfo(".");
             var files = directoryInfo.GetFiles("*.dll");
             foreach (var file in files)
@@ -26,13 +56,17 @@ namespace RGB
                 try
                 {
                     assembly = Assembly.LoadFrom(file.FullName);
-                    foreach (var type in assembly.GetTypes().Where(t => typeof(IGenericColorService).IsAssignableFrom(t) &&!t.IsInterface))
+                    foreach (var type in assembly.GetTypes().Where(t => typeof(IRGBLightService).IsAssignableFrom(t) && !t.IsInterface))
                     {
                         var service = type.GetConstructor(Array.Empty<Type>()).Invoke(Array.Empty<object>());
-                        services.Add(service as IGenericColorService);
+                        services.Add(service as IRGBLightService);
                     }
                 }
                 catch (BadImageFormatException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (ReflectionTypeLoadException e)
                 {
                     Console.WriteLine(e);
                 }

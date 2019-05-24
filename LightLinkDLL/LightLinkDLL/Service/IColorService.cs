@@ -5,11 +5,6 @@ namespace LightLink.Services
     public interface IColorService
     {
         /// <summary>
-        /// Will refresh current devices with newly detected devices
-        /// </summary>
-        void Refresh();
-
-        /// <summary>
         /// Will change All Initialized Device Brush to the passed in color
         /// </summary>
         /// <param name="color"></param>

@@ -8,8 +8,7 @@ namespace LightLinkDLL.DataAccess
 {
     public interface IDataAccessService
     {
-        Computer GetCurrentComputer();
         void UpdateData(Computer computer);
-        EventHandler<EventUpdater> ChangeDetected();
+        IObservable<Profile> ProfileChanged { get; }
     }
 }

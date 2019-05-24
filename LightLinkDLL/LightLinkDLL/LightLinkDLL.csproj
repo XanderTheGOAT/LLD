@@ -1,12 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="LightLinkModels">
-      <HintPath>..\..\..\LLS\LightLinkModels\LightLinkModels\bin\Debug\netstandard2.0\LightLinkModels.dll</HintPath>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LLS\LightLinkModels\LightLinkModels\LightLinkModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>..\..\..\..\..\..\Users\Andres Carrera\.nuget\packages\microsoft.csharp\4.6.0-preview4.19212.13\lib\netstandard2.0\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
