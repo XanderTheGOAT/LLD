@@ -1,9 +1,0 @@
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\bin\Debug\LogitechSDK.dll
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\bin\Debug\LogitechSDK.pdb
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\bin\Debug\LightLinkDLL.dll
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\bin\Debug\LightLinkDLL.pdb
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\obj\Debug\LogitechSDK.csprojAssemblyReference.cache
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\obj\Debug\LogitechSDK.csproj.CoreCompileInputs.cache
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\obj\Debug\LogitechSDK.csproj.CopyComplete
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\obj\Debug\LogitechSDK.dll
-C:\Users\The Goat\source\GitRepos\LLD\DeviceSDKs\LogitechSDK\obj\Debug\LogitechSDK.pdb
