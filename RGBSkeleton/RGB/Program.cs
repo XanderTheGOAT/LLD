@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Reflection;
 
 namespace RGB
@@ -27,17 +28,23 @@ namespace RGB
         private static void InitializeApp()
         {
             var dataSource = new FileDataSource("demo.json");
-            var dataAccess = new PollingDataAccess(5000, dataSource);
-            var computer = new Computer();
+            var dataAccess = new PollingDataAccess(1_500, dataSource);
+            var computer = new Computer
+            {
+                Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"
+            };
             foreach (var service in FindAllServices())
             {
-                //TODO: Start services...
                 service.Start();
                 dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
-                computer.Name = Environment.MachineName;
                 AddDevicesToComputer(service, computer);
             }
             dataAccess.UpdateData(computer);
+        }
+
+        private static NetworkInterface GetFirstNetworkCard()
+        {
+           return NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault();
         }
 
         private static void AddDevicesToComputer(IRGBLightService service, Computer computer)

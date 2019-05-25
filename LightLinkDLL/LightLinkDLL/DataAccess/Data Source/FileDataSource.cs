@@ -28,7 +28,8 @@ namespace LightLinkDLL.DataAccess.Data_Source
         {
             var jsonValue = File.ReadAllText(FilePath);
             var jObj = JsonConvert.DeserializeObject<JObject>(jsonValue);
-            jObj.Add("computer", JsonConvert.SerializeObject(computer));
+            jObj["computer"] = JToken.FromObject(computer);
+
             File.WriteAllText(FilePath, jObj.ToString());
         }
     }
