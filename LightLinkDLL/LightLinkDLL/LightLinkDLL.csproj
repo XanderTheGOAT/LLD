@@ -12,10 +12,4 @@
     <ProjectReference Include="..\..\..\LLS\LightLinkModels\LightLinkModels\LightLinkModels.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp">
-      <HintPath>..\..\..\..\..\..\Users\Andres Carrera\.nuget\packages\microsoft.csharp\4.6.0-preview4.19212.13\lib\netstandard2.0\Microsoft.CSharp.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

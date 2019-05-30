@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkDLL", "LightLinkDLL\LightLinkDLL.csproj", "{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkDll", "ClassLibrary1\LightLinkDll.csproj", "{1C3A9358-1D51-4B1B-9896-E37BA94B8FB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkDLL('Fixed')", "LightLinkDLL('Fixed')\LightLinkDLL('Fixed').csproj", "{2DA25E63-CE14-4FFA-8B43-078003AF5721}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLinkModels", "..\..\LLS\LightLinkModels\LightLinkModels\LightLinkModels.csproj", "{39EB02BC-DE04-4DDB-86AD-48CF73D78060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B2F5633-1DB6-4DFE-A5B6-D511CD2FE2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3A9358-1D51-4B1B-9896-E37BA94B8FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3A9358-1D51-4B1B-9896-E37BA94B8FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3A9358-1D51-4B1B-9896-E37BA94B8FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3A9358-1D51-4B1B-9896-E37BA94B8FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA25E63-CE14-4FFA-8B43-078003AF5721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA25E63-CE14-4FFA-8B43-078003AF5721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA25E63-CE14-4FFA-8B43-078003AF5721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA25E63-CE14-4FFA-8B43-078003AF5721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39EB02BC-DE04-4DDB-86AD-48CF73D78060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39EB02BC-DE04-4DDB-86AD-48CF73D78060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39EB02BC-DE04-4DDB-86AD-48CF73D78060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39EB02BC-DE04-4DDB-86AD-48CF73D78060}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
