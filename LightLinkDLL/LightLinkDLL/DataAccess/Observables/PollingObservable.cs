@@ -24,7 +24,7 @@ namespace LightLinkDLL.DataAccess
         }
         private void NotifySubscribers(Profile data)
         {
-            Console.WriteLine("Writing out to observers");
+
             foreach (var observer in observers)
             {
                 observer.OnNext(data);

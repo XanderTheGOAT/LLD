@@ -14,6 +14,7 @@ namespace LightLinkDLL.DataAccess
             {
                 Observer = observer;
                 Observers = observers;
+                Observers.Add(Observer);
             }
 
 
