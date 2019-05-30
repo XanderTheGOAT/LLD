@@ -16,7 +16,7 @@ namespace RGB
         public static void Main(string[] args)
         {
             //PrintAllThings();
-            InitializeApp();
+            InitializeApp();            
             do
             {
                 Console.WriteLine("Press N To Exit...");
@@ -29,6 +29,7 @@ namespace RGB
         {
             var dataSource = new FileDataSource("demo.json");
             var dataAccess = new PollingDataAccess(1_500, dataSource);
+            dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
             var computer = new Computer
             {
                 Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"
