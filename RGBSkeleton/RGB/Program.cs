@@ -15,6 +15,7 @@ namespace RGB
     {
         public static void Main(string[] args)
         {
+            //source.GetString();
             //PrintAllThings();
             InitializeApp();            
             do
@@ -27,7 +28,8 @@ namespace RGB
 
         private static void InitializeApp()
         {
-            var dataSource = new FileDataSource("demo.json");
+            HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", "gxldcptrick");
+            //var dataSource = new FileDataSource("demo.json");
             var dataAccess = new PollingDataAccess(1_500, dataSource);
             dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
             var computer = new Computer
@@ -50,7 +52,11 @@ namespace RGB
 
         private static void AddDevicesToComputer(IRGBLightService service, Computer computer)
         {
-            //TODO: Add Devices To computer.
+            foreach (var device in service.GetInitializedDevices())
+            {
+                computer.ConnectedDevices.Add(device.Type.ToString() + ": " + device.Model);
+            }
+
         }
 
         public static IEnumerable<IRGBLightService> FindAllServices()
