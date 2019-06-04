@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using LightLinkModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,16 +14,23 @@ namespace LightLinkDLL.DataAccess
     public class HttpDataSource : IDataSource
     {
 
-        private static readonly HttpClient client = new HttpClient();
         public string BaseUrl { get; }
         public UserLogin Login { get; }
-        private Profile currentProfile;
         public string Token { get; private set; }
+
+        private Profile currentProfile;
+        private string filename = "tokens.txt";
+        private static readonly HttpClient client = new HttpClient();
 
         public HttpDataSource(string host, UserLogin login)
         {
             BaseUrl = host;
             Login = login;
+            ReadTokenFromFile();
+            if (!String.IsNullOrEmpty(Token))
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token.Split('/')[1]);
+            else
+                RetrieveToken();
         }
 
         private void RetrieveToken()
@@ -40,7 +48,13 @@ namespace LightLinkDLL.DataAccess
             contentTask.Wait();
             var contentString = contentTask.Result;
             JToken token = JObject.Parse(contentString);
-            Token = JsonConvert.DeserializeObject<String>(token.ToString());
+            string value = token["userName"].ToString();
+            string tokenstr = token["token"].ToString();
+
+            Token = value + " / ";
+            Token += tokenstr;
+            client.DefaultRequestHeaders.Remove("Authorization");
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token.Split('/')[1]);
         }
 
         public Profile GetProfile()
@@ -71,7 +85,7 @@ namespace LightLinkDLL.DataAccess
             var task = client.PostAsync(profileRoute, computerQuery);
             task.Wait();
             HttpResponseMessage response = task.Result;
-            if (response.EnsureSuccessStatusCode().StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
                 RetrieveToken();
             }
@@ -80,13 +94,18 @@ namespace LightLinkDLL.DataAccess
 
         public void WriteTokenToFile(string token)
         {
-            using (StreamWriter writer = new StreamWriter(new FileStream("tokens.txt", FileMode.OpenOrCreate)))
+            using (StreamWriter writer = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
             {
-                File.SetAttributes("tokens.txt", File.GetAttributes("tokens.txt") | FileAttributes.Hidden);
+                File.SetAttributes(filename, File.GetAttributes(filename) | FileAttributes.Hidden);
                 writer.WriteLine(token);
+                writer.Flush();
             }
         }
-
+        public void ReadTokenFromFile()
+        {
+            if (File.Exists(filename))
+                Token = File.ReadAllText(filename);
+        }
         public void Dispose()
         {
             WriteTokenToFile(Token);

@@ -17,20 +17,23 @@ namespace RGB
         {
             //source.GetString();
             //PrintAllThings();
-            InitializeApp();            
+            InitializeApp();
             do
             {
                 Console.WriteLine("Press N To Exit...");
             }
             while (Console.ReadKey().Key != ConsoleKey.N);
-            
+
         }
 
         private static void InitializeApp()
         {
-            HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", new UserLogin("Null","Null"));
+            PollingDataAccess dataAccess = null;
             //var dataSource = new FileDataSource("demo.json");
-            var dataAccess = new PollingDataAccess(1_500, dataSource);
+            using (HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", new UserLogin("Null", "Null")))
+            {
+                dataAccess = new PollingDataAccess(1_500, dataSource);
+            }
             dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
             var computer = new Computer
             {
@@ -47,7 +50,7 @@ namespace RGB
 
         private static NetworkInterface GetFirstNetworkCard()
         {
-           return NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault();
+            return NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault();
         }
 
         private static void AddDevicesToComputer(IRGBLightService service, Computer computer)
