@@ -13,22 +13,45 @@ namespace LightLinkDLL.DataAccess
     {
 
         private static readonly HttpClient client = new HttpClient();
-
         public string BaseUrl { get; }
-        public string Username { get; }
+        public UserLogin Login { get; }
         private Profile currentProfile;
+        public string Token { get; private set; }
 
-
-        public HttpDataSource(string host, string username)
+        public HttpDataSource(string host, UserLogin login)
         {
             BaseUrl = host;
-            Username = username;
+            Login = login;
         }
 
+        private void RetrieveToken()
+        {
+            string tokenRoute = BaseUrl + "/user/authenticate";
+            string serializedLogin = JsonConvert.SerializeObject(Login);
+            StringContent loginQuery = new StringContent(serializedLogin);
+            loginQuery.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+            var task = client.PostAsync(tokenRoute, loginQuery);
+            task.Wait();
+            var result = task.Result;
+            if (!result.EnsureSuccessStatusCode().IsSuccessStatusCode) throw new ArgumentException();
+
+            var contentTask = result.Content.ReadAsStringAsync();
+            contentTask.Wait();
+            var contentString = contentTask.Result;
+            JToken token = JObject.Parse(contentString);
+            Token = JsonConvert.DeserializeObject<String>(token.ToString());
+        }
 
         public Profile GetProfile()
         {
-            string profileRoute = BaseUrl + "/Profile/active/" + Username;
+            string profileRoute = BaseUrl + "/Profile/active/" + Login.Username;
+            var taskStatusCode = client.GetAsync(profileRoute);
+            taskStatusCode.Wait();
+            if (taskStatusCode.Result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                RetrieveToken();
+            }
+
             var task = client.GetStringAsync(profileRoute);
             task.Wait();
             var result = task.Result;
@@ -47,8 +70,17 @@ namespace LightLinkDLL.DataAccess
             var task = client.PostAsync(profileRoute, computerQuery);
             task.Wait();
             HttpResponseMessage response = task.Result;
-            response.EnsureSuccessStatusCode();
+            if (response.EnsureSuccessStatusCode().StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                RetrieveToken();
+            }
             Console.WriteLine(response.IsSuccessStatusCode);
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

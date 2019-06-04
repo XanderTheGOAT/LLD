@@ -32,5 +32,10 @@ namespace LightLinkDLL.DataAccess.Data_Source
 
             File.WriteAllText(FilePath, jObj.ToString());
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

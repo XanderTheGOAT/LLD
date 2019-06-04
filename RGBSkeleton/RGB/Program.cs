@@ -28,7 +28,7 @@ namespace RGB
 
         private static void InitializeApp()
         {
-            HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", "gxldcptrick");
+            HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", new UserLogin("Null","Null"));
             //var dataSource = new FileDataSource("demo.json");
             var dataAccess = new PollingDataAccess(1_500, dataSource);
             dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
