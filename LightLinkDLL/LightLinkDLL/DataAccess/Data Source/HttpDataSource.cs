@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -77,9 +78,18 @@ namespace LightLinkDLL.DataAccess
             Console.WriteLine(response.IsSuccessStatusCode);
         }
 
+        public void WriteTokenToFile(string token)
+        {
+            using (StreamWriter writer = new StreamWriter(new FileStream("tokens.txt", FileMode.OpenOrCreate)))
+            {
+                File.SetAttributes("tokens.txt", File.GetAttributes("tokens.txt") | FileAttributes.Hidden);
+                writer.WriteLine(token);
+            }
+        }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            WriteTokenToFile(Token);
         }
 
     }
