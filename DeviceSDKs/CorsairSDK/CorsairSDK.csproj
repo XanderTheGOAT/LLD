@@ -32,9 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CUE.NET, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\GitRepos\program\bin\Debug\netcoreapp2.1\CUE.NET.dll</HintPath>
+    <Reference Include="CUE.NET">
+      <HintPath>..\..\..\..\CUE.NET\bin\CUE.NET.dll</HintPath>
     </Reference>
     <Reference Include="LightLinkDLL">
       <HintPath>..\..\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.dll</HintPath>

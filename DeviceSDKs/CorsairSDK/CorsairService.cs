@@ -15,7 +15,7 @@ using LightLink.Services;
 
 namespace CorsairSDK
 {
-    public class CorsairService : IGenericColorService
+    public class CorsairService : IRGBLightService
     {
         #region Properties / Data Fields
         private static CorsairService service;

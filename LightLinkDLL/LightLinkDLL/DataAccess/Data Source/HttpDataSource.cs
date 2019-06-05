@@ -35,14 +35,14 @@ namespace LightLinkDLL.DataAccess
 
         private void RetrieveToken()
         {
-            string tokenRoute = BaseUrl + "/user/authenticate";
+            string tokenRoute = BaseUrl + "user/authenticate";
             string serializedLogin = JsonConvert.SerializeObject(Login);
             StringContent loginQuery = new StringContent(serializedLogin);
             loginQuery.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
             var task = client.PostAsync(tokenRoute, loginQuery);
             task.Wait();
             var result = task.Result;
-            if (!result.EnsureSuccessStatusCode().IsSuccessStatusCode) throw new ArgumentException();
+            if (!result.EnsureSuccessStatusCode().IsSuccessStatusCode) throw new ArgumentException("Server threw " + result.StatusCode.ToString() + " error");
 
             var contentTask = result.Content.ReadAsStringAsync();
             contentTask.Wait();
@@ -59,13 +59,15 @@ namespace LightLinkDLL.DataAccess
 
         public Profile GetProfile()
         {
-            string profileRoute = BaseUrl + "/Profile/active/" + Login.Username;
+            string profileRoute = BaseUrl + "Profile/active/" + Login.Username;
             var taskStatusCode = client.GetAsync(profileRoute);
             taskStatusCode.Wait();
             if (taskStatusCode.Result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
                 RetrieveToken();
             }
+            else if (!taskStatusCode.Result.IsSuccessStatusCode)
+                throw new ArgumentException("Server threw " + taskStatusCode.Result.StatusCode.ToString() + " error");
 
             var task = client.GetStringAsync(profileRoute);
             task.Wait();
@@ -77,9 +79,8 @@ namespace LightLinkDLL.DataAccess
 
         public void UpdateData(Computer computer)
         {
-            string profileRoute = BaseUrl + "/Computer";
+            string profileRoute = BaseUrl + "Computer";
             String serializedComputer = JsonConvert.SerializeObject(computer);
-            Console.WriteLine(serializedComputer);
             StringContent computerQuery = new StringContent(serializedComputer);
             computerQuery.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
             var task = client.PostAsync(profileRoute, computerQuery);
@@ -89,7 +90,8 @@ namespace LightLinkDLL.DataAccess
             {
                 RetrieveToken();
             }
-            Console.WriteLine(response.IsSuccessStatusCode);
+            else if (!response.IsSuccessStatusCode)
+                throw new ArgumentException("Server threw " + response.StatusCode.ToString() + " error");
         }
 
         public void WriteTokenToFile(string token)

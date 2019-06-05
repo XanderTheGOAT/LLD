@@ -12,4 +12,13 @@
     <ProjectReference Include="..\..\..\LLS\LightLinkModels\LightLinkModels\LightLinkModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="CorsairSDK">
+      <HintPath>..\..\DeviceSDKs\CorsairSDK\bin\Debug\CorsairSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="LogitechSDK">
+      <HintPath>..\..\DeviceSDKs\LogitechSDK\bin\Debug\LogitechSDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

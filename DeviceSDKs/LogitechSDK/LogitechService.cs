@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace LogitechSDK
 {
-    public class LogitechService : IGenericColorService
+    public class LogitechService : IRGBLightService
     {
         public Process process;
         public bool IsStarted { get; private set; }
@@ -96,7 +96,8 @@ namespace LogitechSDK
 
         public IEnumerable<IDeviceInfo> GetInitializedDevices()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return null;
         }
 
         public string GetServiceName()

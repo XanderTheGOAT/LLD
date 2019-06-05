@@ -1,4 +1,5 @@
-﻿using LightLink.Services;
+﻿using LightLink.Models.Colors;
+using LightLink.Services;
 using LightLinkDLL.DataAccess;
 using LightLinkDLL.DataAccess.Data_Source;
 using LightLinkModels;
@@ -13,33 +14,31 @@ namespace RGB
 {
     internal class Program
     {
+
+        private static IDataSource dataSource = new HttpDataSource("https://localhost:44332/api/", new UserLogin("gxldcptrick", "Not A Secure Password"));
+
         public static void Main(string[] args)
         {
-            //source.GetString();
-            //PrintAllThings();
             InitializeApp();
             do
             {
                 Console.WriteLine("Press N To Exit...");
             }
             while (Console.ReadKey().Key != ConsoleKey.N);
-
+            dataSource.Dispose();
         }
 
         private static void InitializeApp()
         {
             PollingDataAccess dataAccess = null;
-            //var dataSource = new FileDataSource("demo.json");
-            using (HttpDataSource dataSource = new HttpDataSource("https://localhost:44332/api", new UserLogin("Null", "Null")))
-            {
-                dataAccess = new PollingDataAccess(1_500, dataSource);
-            }
+            dataAccess = new PollingDataAccess(1_500, dataSource);
             dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
             var computer = new Computer
             {
                 Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"
             };
-            foreach (var service in FindAllServices())
+            var services = FindAllServices();
+            foreach (var service in services)
             {
                 service.Start();
                 dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
@@ -59,7 +58,6 @@ namespace RGB
             {
                 computer.ConnectedDevices.Add(device.Type.ToString() + ": " + device.Model);
             }
-
         }
 
         public static IEnumerable<IRGBLightService> FindAllServices()
@@ -98,19 +96,19 @@ namespace RGB
             foreach (var service in services.Where(s => s.GetServiceName() == "Logitech"))
             {
                 Console.WriteLine(service.GetServiceName());
-                //if (service.GetServiceName().Equals("Logitech"))
-                //{
-                //    service.Start();
-                //    while (Console.ReadLine() != "n")
-                //    {
-                //        byte r = (byte)randySavage.Next(255);
-                //        byte g = (byte)randySavage.Next(255);
-                //        byte b = (byte)randySavage.Next(255);
-                //        service.ChangeAllColors(new CompanyColor(r,g,b));
-                //        Console.WriteLine("Changed");
-                //    }
-                //    service.Stop();
-                //}
+                if (service.GetServiceName().Equals("Logitech"))
+                {
+                    service.Start();
+                    while (Console.ReadLine() != "n")
+                    {
+                        byte r = (byte)randySavage.Next(255);
+                        byte g = (byte)randySavage.Next(255);
+                        byte b = (byte)randySavage.Next(255);
+                        service.ChangeAllColors(new CompanyColor(r, g, b));
+                        Console.WriteLine("Changed");
+                    }
+                    service.Stop();
+                }
             }
         }
 
