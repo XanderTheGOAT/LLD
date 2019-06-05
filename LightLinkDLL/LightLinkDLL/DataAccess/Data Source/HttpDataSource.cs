@@ -59,16 +59,12 @@ namespace LightLinkDLL.DataAccess
 
         public Profile GetProfile()
         {
-            string profileRoute = BaseUrl + "Profile/active/" + Login.Username;
-            var taskStatusCode = client.GetAsync(profileRoute);
-            taskStatusCode.Wait();
-            if (taskStatusCode.Result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-            {
+            string profileRoute = BaseUrl + "profile/active/" + Login.Username;
+            var httptask = client.GetAsync(profileRoute);
+            httptask.Wait();
+            HttpResponseMessage response = httptask.Result;
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 RetrieveToken();
-            }
-            else if (!taskStatusCode.Result.IsSuccessStatusCode)
-                throw new ArgumentException("Server threw " + taskStatusCode.Result.StatusCode.ToString() + " error");
-
             var task = client.GetStringAsync(profileRoute);
             task.Wait();
             var result = task.Result;
@@ -79,7 +75,7 @@ namespace LightLinkDLL.DataAccess
 
         public void UpdateData(Computer computer)
         {
-            string profileRoute = BaseUrl + "Computer";
+            string profileRoute = BaseUrl + "computer";
             String serializedComputer = JsonConvert.SerializeObject(computer);
             StringContent computerQuery = new StringContent(serializedComputer);
             computerQuery.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
@@ -99,7 +95,7 @@ namespace LightLinkDLL.DataAccess
             using (StreamWriter writer = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
             {
                 File.SetAttributes(filename, File.GetAttributes(filename) | FileAttributes.Hidden);
-                writer.WriteLine(token);
+                writer.Write(token);
                 writer.Flush();
             }
         }

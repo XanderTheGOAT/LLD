@@ -11,6 +11,7 @@ using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Effects;
 using LightLink.Models.Colors;
 using LightLink.Models.Devices;
+using LightLink.Models.Enums;
 using LightLink.Services;
 
 namespace CorsairSDK
@@ -107,6 +108,7 @@ namespace CorsairSDK
                 device.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             }
             CueSDK.UpdateMode = UpdateMode.Continuous;
+            Thread.Sleep(1000);
         }
 
         public void ChangeAllColors()
@@ -116,6 +118,7 @@ namespace CorsairSDK
                 device.Brush = new RandomColorBrush();
             }
             CueSDK.UpdateMode = UpdateMode.Continuous;
+            Thread.Sleep(1000);
         }
 
         public void ChangeMouseColor(CompanyColor color)
@@ -160,7 +163,12 @@ namespace CorsairSDK
 
         public IEnumerable<IDeviceInfo> GetInitializedDevices()
         {
-            throw new NotImplementedException();
+            List<IDeviceInfo> deviceInfos = new List<IDeviceInfo>();
+            foreach (var device in CueSDK.InitializedDevices)
+            {
+                deviceInfos.Add(new LightLink.Models.Generic.GenericDeviceInfo(device.DeviceInfo.Model, (DeviceType)((int)device.DeviceInfo.Type),DeviceCaps.Lighting));
+            }
+            return deviceInfos;
         }
         #endregion
     }

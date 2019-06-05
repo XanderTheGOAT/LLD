@@ -35,8 +35,9 @@
     <Reference Include="CUE.NET">
       <HintPath>..\..\..\..\CUE.NET\bin\CUE.NET.dll</HintPath>
     </Reference>
-    <Reference Include="LightLinkDLL">
-      <HintPath>..\..\LightLinkDLL\LightLinkDLL\bin\Debug\netstandard2.0\LightLinkDLL.dll</HintPath>
+    <Reference Include="LightLinkDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LogitechSDK\bin\Debug\LightLinkDLL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

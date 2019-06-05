@@ -1,7 +1,7 @@
-﻿using LightLinkSDK.Models;
-using LightLinkSDK.Models.Generic;
-using LightLinkSDK.Services;
-using LightLinkSDK.Services.Generic;
+﻿using CorsairSDK;
+using LightLink.Models.Colors;
+using LightLink.Services;
+using LogitechSDK;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace LightLinkDLLTester
     [TestClass]
     public class CorsairTester
     {
-        static IGenericColorService service = CorsairService.Instance;
+        static IRGBLightService service = CorsairService.Instance;
 
         [AssemblyInitialize]
         public static void Initialize(TestContext context)
@@ -27,9 +27,10 @@ namespace LightLinkDLLTester
         public void ChangeColors()
         {
             Random r = new Random();
-            IGenericColorService lService = new LogitechService();
+            IRGBLightService lService = new LogitechService();
             lService.Start();
             lService.ChangeAllColors(new CompanyColor(0, 255, 0));
+            service.GetInitializedDevices();
             service.ChangeAllColors();
             Thread.Sleep(2000);
             while (true)

@@ -26,5 +26,12 @@ namespace LightLink.Models.Generic
             Model = device.Model;
             CapsMask = device.CapsMask;
         }
+
+        public GenericDeviceInfo(string model, DeviceType type, DeviceCaps caps)
+        {
+            Type = type;
+            Model = model;
+            CapsMask = caps;
+        }
     }
 }

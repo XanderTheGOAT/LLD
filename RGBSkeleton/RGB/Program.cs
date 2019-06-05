@@ -15,10 +15,15 @@ namespace RGB
     internal class Program
     {
 
-        private static IDataSource dataSource = new HttpDataSource("https://localhost:44332/api/", new UserLogin("gxldcptrick", "Not A Secure Password"));
+        private static IDataSource dataSource = null;
 
         public static void Main(string[] args)
         {
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = HiddenEntry();
+            dataSource = new HttpDataSource("https://localhost:44332/api/", new UserLogin(username, password));
             InitializeApp();
             do
             {
@@ -32,7 +37,6 @@ namespace RGB
         {
             PollingDataAccess dataAccess = null;
             dataAccess = new PollingDataAccess(1_500, dataSource);
-            dataAccess.ProfileChanged.Subscribe(new LoggingObserver());
             var computer = new Computer
             {
                 Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"
@@ -63,7 +67,8 @@ namespace RGB
         public static IEnumerable<IRGBLightService> FindAllServices()
         {
             var services = new List<IRGBLightService>();
-            var directoryInfo = new DirectoryInfo(".");
+
+            var directoryInfo = new DirectoryInfo("../../SDKs/.");
             var files = directoryInfo.GetFiles("*.dll");
             foreach (var file in files)
             {
@@ -112,5 +117,27 @@ namespace RGB
             }
         }
 
+
+        private static string HiddenEntry()
+        {
+            var key = ConsoleKey.A;
+            String word = "";
+            do
+            {
+                var info = Console.ReadKey(true);
+                key = info.Key;
+                if (key == ConsoleKey.Backspace && word.Length > 0)
+                {
+                    Console.Write("\b \b");
+                    word = word.Substring(0,word.Length-1);
+                }
+                else if(key != ConsoleKey.Enter)
+                {
+                    Console.Write("*");
+                    word += key.ToString();
+                }
+            } while (key != ConsoleKey.Enter);
+            return word;
+        }
     }
 }
