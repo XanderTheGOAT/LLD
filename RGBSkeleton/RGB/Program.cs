@@ -22,7 +22,7 @@ namespace RGB
             Console.Write("Username: ");
             string username = Console.ReadLine();
             Console.Write("Password: ");
-            string password = HiddenEntry();
+            string password = Console.ReadLine();
             dataSource = new HttpDataSource("https://localhost:44332/api/", new UserLogin(username, password));
             InitializeApp();
             do

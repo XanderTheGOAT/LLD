@@ -27,20 +27,20 @@ namespace LightLinkDLLTester
         public void ChangeColors()
         {
             Random r = new Random();
-            IRGBLightService lService = new LogitechService();
+            /*IRGBLightService lService = new LogitechService();
             lService.Start();
             lService.ChangeAllColors(new CompanyColor(0, 255, 0));
-            service.GetInitializedDevices();
-            service.ChangeAllColors();
-            Thread.Sleep(2000);
-            while (true)
+            service.ChangeAllColors(new CompanyColor(0, 0, 255));*/
+            service.ChangeMouseColor(new CompanyColor("c001af"));
+            return;
+            /*while (true)
             {
                 byte red = (byte)(r.Next(150) + 105);
                 byte green = (byte)(r.Next(150) + 1);
                 byte blue = (byte)(r.Next(150) + 1);
 
                 lService.ChangeAllColors(new CompanyColor(red, green, blue));
-                service.ChangeAllColors(new CompanyColor(red, green, blue));
+                service.ChangeMouseColor(new CompanyColor(red, green, blue));
                 Thread.Sleep(2000);
                 red = (byte)(r.Next(150) + 1);
                 green = (byte)(r.Next(150) + 105);
@@ -55,7 +55,7 @@ namespace LightLinkDLLTester
                 service.ChangeAllColors(new CompanyColor(red, green, blue));
                 Thread.Sleep(2000);
             }
-            lService.Stop();
+            lService.Stop();*/
         }
 
         [AssemblyCleanup]

@@ -5,6 +5,7 @@ using LightLinkModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace LightLinkDLL.DataAccess
 {
@@ -61,6 +62,7 @@ namespace LightLinkDLL.DataAccess
             {
                 CurrentService.ChangeMousematColor(new CompanyColor(mouseMatValue));
             }
+            Thread.Sleep(10000);
         }
     }
 }

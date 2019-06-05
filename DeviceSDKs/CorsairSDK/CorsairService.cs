@@ -22,6 +22,7 @@ namespace CorsairSDK
         private static CorsairService service;
         public CorsairService()
         {
+            ///CueSDK.UpdateMode = UpdateMode.Continuous;
         }
 
         public static CorsairService Instance
@@ -118,42 +119,52 @@ namespace CorsairSDK
                 device.Brush = new RandomColorBrush();
             }
             CueSDK.UpdateMode = UpdateMode.Continuous;
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
         }
 
         public void ChangeMouseColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
+            CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
             CueSDK.MouseSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            Thread.Sleep(10000);
         }
 
         public void ChangeKeyboardColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
+            CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
             CueSDK.KeyboardSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            Thread.Sleep(1000);
         }
 
         public void ChangeHeadsetColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
+            CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
             CueSDK.HeadsetSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            Thread.Sleep(1000);
         }
 
         public void ChangeHeadsetStandColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
+            CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
             CueSDK.HeadsetStandSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            Thread.Sleep(1000);
         }
 
         public void ChangeMousematColor(CompanyColor color)
         {
             if (color is null) throw new Exception("Color can't be null");
+            CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
             CueSDK.MousematSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            Thread.Sleep(1000);
         }
 
         public String GetServiceName()
