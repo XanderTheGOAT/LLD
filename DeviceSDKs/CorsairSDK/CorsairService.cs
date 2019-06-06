@@ -127,7 +127,8 @@ namespace CorsairSDK
             if (color is null) throw new Exception("Color can't be null");
             CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
-            CueSDK.MouseSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            if (CueSDK.MouseSDK != null)
+                CueSDK.MouseSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             Thread.Sleep(10000);
         }
 
@@ -136,7 +137,8 @@ namespace CorsairSDK
             if (color is null) throw new Exception("Color can't be null");
             CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
-            CueSDK.KeyboardSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            if (CueSDK.KeyboardSDK != null)
+                CueSDK.KeyboardSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             Thread.Sleep(1000);
         }
 
@@ -145,7 +147,8 @@ namespace CorsairSDK
             if (color is null) throw new Exception("Color can't be null");
             CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
-            CueSDK.HeadsetSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            if (!(CueSDK.HeadsetSDK is null))
+                CueSDK.HeadsetSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             Thread.Sleep(1000);
         }
 
@@ -154,7 +157,8 @@ namespace CorsairSDK
             if (color is null) throw new Exception("Color can't be null");
             CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
-            CueSDK.HeadsetStandSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            if (CueSDK.HeadsetStandSDK != null)
+                CueSDK.HeadsetStandSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             Thread.Sleep(1000);
         }
 
@@ -163,7 +167,8 @@ namespace CorsairSDK
             if (color is null) throw new Exception("Color can't be null");
             CueSDK.UpdateMode = UpdateMode.Continuous;
             CorsairColorConverter corsairColor = new CorsairColorConverter();
-            CueSDK.MousematSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
+            if (CueSDK.MousematSDK != null)
+                CueSDK.MousematSDK.Brush = new SolidColorBrush(new CorsairColor(corsairColor.ConvertToGenericColor(color)));
             Thread.Sleep(1000);
         }
 
@@ -177,7 +182,7 @@ namespace CorsairSDK
             List<IDeviceInfo> deviceInfos = new List<IDeviceInfo>();
             foreach (var device in CueSDK.InitializedDevices)
             {
-                deviceInfos.Add(new LightLink.Models.Generic.GenericDeviceInfo(device.DeviceInfo.Model, (DeviceType)((int)device.DeviceInfo.Type),DeviceCaps.Lighting));
+                deviceInfos.Add(new LightLink.Models.Generic.GenericDeviceInfo(device.DeviceInfo.Model, (DeviceType)((int)device.DeviceInfo.Type), DeviceCaps.Lighting));
             }
             return deviceInfos;
         }

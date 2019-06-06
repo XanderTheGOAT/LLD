@@ -42,7 +42,7 @@ namespace LightLinkDLL.DataAccess
             var task = client.PostAsync(tokenRoute, loginQuery);
             task.Wait();
             var result = task.Result;
-            if (!result.EnsureSuccessStatusCode().IsSuccessStatusCode) throw new ArgumentException("Server threw " + result.StatusCode.ToString() + " error");
+            if (!result.IsSuccessStatusCode) throw new ArgumentException("Server threw " + result.StatusCode.ToString() + " error");
 
             var contentTask = result.Content.ReadAsStringAsync();
             contentTask.Wait();
@@ -103,6 +103,10 @@ namespace LightLinkDLL.DataAccess
         {
             if (File.Exists(filename))
                 Token = File.ReadAllText(filename);
+            if (Token != null)
+                if (String.Compare(Token.Split('/')[0], Login.Username, true) != 0)
+                    Token = null;
+
         }
         public void Dispose()
         {

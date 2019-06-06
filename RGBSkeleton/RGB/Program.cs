@@ -19,11 +19,6 @@ namespace RGB
 
         public static void Main(string[] args)
         {
-            Console.Write("Username: ");
-            string username = Console.ReadLine();
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
-            dataSource = new HttpDataSource("https://localhost:44332/api/", new UserLogin(username, password));
             InitializeApp();
             do
             {
@@ -35,6 +30,23 @@ namespace RGB
 
         private static void InitializeApp()
         {
+            bool authorized = false;
+            do
+            {
+                Console.Write("Username: ");
+                string username = Console.ReadLine();
+                Console.Write("Password: ");
+                string password = Console.ReadLine();
+                try
+                {
+                    dataSource = new HttpDataSource("http://69.27.22.253/api/", new UserLogin(username, password));
+                    authorized = true;
+                }
+                catch(ArgumentException)
+                {
+                    Console.WriteLine("Incorrect Username or Password");
+                }
+            } while (!authorized);
             PollingDataAccess dataAccess = null;
             dataAccess = new PollingDataAccess(1_500, dataSource);
             var computer = new Computer
@@ -45,6 +57,7 @@ namespace RGB
             foreach (var service in services)
             {
                 service.Start();
+                service.ChangeAllColors(new CompanyColor("ffffffff"));
                 dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
                 AddDevicesToComputer(service, computer);
             }
@@ -129,9 +142,9 @@ namespace RGB
                 if (key == ConsoleKey.Backspace && word.Length > 0)
                 {
                     Console.Write("\b \b");
-                    word = word.Substring(0,word.Length-1);
+                    word = word.Substring(0, word.Length - 1);
                 }
-                else if(key != ConsoleKey.Enter)
+                else if (key != ConsoleKey.Enter)
                 {
                     Console.Write("*");
                     word += key.ToString();

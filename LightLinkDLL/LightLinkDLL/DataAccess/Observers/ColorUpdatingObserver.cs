@@ -58,7 +58,7 @@ namespace LightLinkDLL.DataAccess
             {
                 CurrentService.ChangeHeadsetStandColor(new CompanyColor(headStandValue));
             }
-            if (value.Configurations.TryGetValue("mouseMat", out var mouseMatValue))
+            if (value.Configurations.TryGetValue("mousepad", out var mouseMatValue))
             {
                 CurrentService.ChangeMousematColor(new CompanyColor(mouseMatValue));
             }
