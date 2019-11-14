@@ -3,6 +3,7 @@ using LightLink.Services;
 using LightLinkDLL.DataAccess;
 using LightLinkDLL.DataAccess.Data_Source;
 using LightLinkModels;
+using LightLinkSDK.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,14 @@ namespace RGB
 
         public static void Main(string[] args)
         {
+            while (true)
+            {
+                Console.WriteLine("Enter a hex rgb value");
+                var RGB = Console.ReadLine();
+                var service = new LightLinkService();
+                service.ChangeMouseColor(new CompanyColor(RGB));
+                Console.Clear();
+            }
             InitializeApp();
             do
             {
@@ -42,7 +51,7 @@ namespace RGB
                     dataSource = new HttpDataSource("http://69.27.22.253/api/", new UserLogin(username, password));
                     authorized = true;
                 }
-                catch(ArgumentException)
+                catch (ArgumentException)
                 {
                     Console.WriteLine("Incorrect Username or Password");
                 }
@@ -53,14 +62,11 @@ namespace RGB
             {
                 Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"
             };
-            var services = FindAllServices();
-            foreach (var service in services)
-            {
-                service.Start();
-                service.ChangeAllColors(new CompanyColor("ffffffff"));
-                dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
-                AddDevicesToComputer(service, computer);
-            }
+            var service = new LightLinkService();
+            service.Start();
+            service.ChangeMouseColor(new CompanyColor("ffffffff"));
+            dataAccess.ProfileChanged.Subscribe(new ColorUpdatingObserver(service));
+            AddDevicesToComputer(service, computer);
             dataAccess.UpdateData(computer);
         }
 

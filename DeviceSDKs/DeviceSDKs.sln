@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsairSDK", "CorsairSDK\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{84DD5D82-B316-43AA-8D2B-AE2EA2D1AEA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLinkSDK", "LightLinkSDK\LightLinkSDK.csproj", "{5293E1EB-A6B6-46F2-BDE6-C7EF3297AE5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLinkSDK", "LightLinkSDK\LightLinkSDK.csproj", "{066AAA7C-F211-47A8-907C-C3C5C2EBD648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{84DD5D82-B316-43AA-8D2B-AE2EA2D1AEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84DD5D82-B316-43AA-8D2B-AE2EA2D1AEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84DD5D82-B316-43AA-8D2B-AE2EA2D1AEA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5293E1EB-A6B6-46F2-BDE6-C7EF3297AE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5293E1EB-A6B6-46F2-BDE6-C7EF3297AE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5293E1EB-A6B6-46F2-BDE6-C7EF3297AE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5293E1EB-A6B6-46F2-BDE6-C7EF3297AE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066AAA7C-F211-47A8-907C-C3C5C2EBD648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066AAA7C-F211-47A8-907C-C3C5C2EBD648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066AAA7C-F211-47A8-907C-C3C5C2EBD648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066AAA7C-F211-47A8-907C-C3C5C2EBD648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

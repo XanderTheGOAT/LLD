@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using LightLink.Models.Colors;
 using LightLink.Models.Devices;
+using LightLink.Models.Enums;
 using LightLink.Services;
 using RGBLibrary;
 using RGBLibrary.Models;
 
 namespace LightLinkSDK.Services
 {
-    class LightLinkService : IRGBLightService
+    public class LightLinkService : IRGBLightService
     {
         public void ChangeAllColors(CompanyColor color)
         {
@@ -41,11 +42,16 @@ namespace LightLinkSDK.Services
         public void ChangeMouseColor(CompanyColor color)
         {
             Device mouse = new Device("1b1c", "1b2e");
+            int currentZone = 1;
             Command command = new Command();
             command.AddCommand("7");
             command.AddCommand("22");
-            command.AddCommand("34");
+            command.AddCommand("" + currentZone);
             command.AddCommand("1");
+            command.AddCommand("0");
+            command.AddCommand(color.R);
+            command.AddCommand(color.G);
+            command.AddCommand(color.B);
             mouse.RequestToSendFeatureReport(command.CommandList.ToArray());
         }
 
@@ -56,7 +62,9 @@ namespace LightLinkSDK.Services
 
         public IEnumerable<IDeviceInfo> GetInitializedDevices()
         {
-            throw new NotImplementedException();
+            List<IDeviceInfo> deviceInfos = new List<IDeviceInfo>();
+            deviceInfos.Add(new LightLink.Models.Generic.GenericDeviceInfo("M65 RGB PRO", DeviceType.Mouse, DeviceCaps.Lighting));
+            return deviceInfos;
         }
 
         public string GetServiceName()
