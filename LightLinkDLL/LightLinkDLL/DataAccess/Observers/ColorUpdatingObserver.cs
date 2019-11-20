@@ -48,6 +48,8 @@ namespace LightLinkDLL.DataAccess
             }
             if (value.Configurations.TryGetValue("mouse", out var mouseValue))
             {
+                if ((mouseValue as String).Length > 6)
+                    mouseValue = (mouseValue as String).Substring(2);
                 CurrentService.ChangeMouseColor(new CompanyColor(mouseValue));
             }
             if (value.Configurations.TryGetValue("headset", out var headsetValue))

@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Threading;
 
 namespace RGB
 {
@@ -20,20 +21,13 @@ namespace RGB
 
         public static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.WriteLine("Enter a hex rgb value");
-                var RGB = Console.ReadLine();
-                var service = new LightLinkService();
-                service.ChangeMouseColor(new CompanyColor(RGB));
-                Console.Clear();
-            }
             InitializeApp();
             do
             {
                 Console.WriteLine("Press N To Exit...");
+                Console.ReadLine();
             }
-            while (Console.ReadKey().Key != ConsoleKey.N);
+            while (true);
             dataSource.Dispose();
         }
 
@@ -42,13 +36,11 @@ namespace RGB
             bool authorized = false;
             do
             {
-                Console.Write("Username: ");
-                string username = Console.ReadLine();
-                Console.Write("Password: ");
-                string password = Console.ReadLine();
+                string username = "user";
+                string password = "pass";
                 try
                 {
-                    dataSource = new HttpDataSource("http://69.27.22.253/api/", new UserLogin(username, password));
+                    dataSource = new HttpDataSource("http://localhost:44332/api/", new UserLogin(username, password));
                     authorized = true;
                 }
                 catch (ArgumentException)
@@ -57,7 +49,7 @@ namespace RGB
                 }
             } while (!authorized);
             PollingDataAccess dataAccess = null;
-            dataAccess = new PollingDataAccess(1_500, dataSource);
+            dataAccess = new PollingDataAccess(0.5, dataSource);
             var computer = new Computer
             {
                 Name = $"{Environment.MachineName}:{GetFirstNetworkCard()?.GetPhysicalAddress()?.ToString()}"

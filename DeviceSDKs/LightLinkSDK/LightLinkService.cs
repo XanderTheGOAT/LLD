@@ -36,7 +36,6 @@ namespace LightLinkSDK.Services
 
         public void ChangeKeyboardColor(CompanyColor color)
         {
-            throw new NotImplementedException();
         }
 
         public void ChangeMouseColor(CompanyColor color)
@@ -57,7 +56,6 @@ namespace LightLinkSDK.Services
 
         public void ChangeMousematColor(CompanyColor color)
         {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<IDeviceInfo> GetInitializedDevices()
@@ -84,7 +82,6 @@ namespace LightLinkSDK.Services
 
         public void Start()
         {
-            throw new NotImplementedException();
         }
 
         public void Stop()
