@@ -31,13 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LightLinkDLL">
-      <HintPath>..\LogitechSDK\bin\Debug\LightLinkDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="RGBLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Drivers\Light-Link-Drivers\RGBDrivers\Testing\bin\Debug\RGBLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +43,12 @@
   <ItemGroup>
     <Compile Include="LightLinkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LightLinkDLL\LightLinkDLL\LightLinkDLL.csproj">
+      <Project>{d27c7862-c105-449c-acc8-f15e11ed8ded}</Project>
+      <Name>LightLinkDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
